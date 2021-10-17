@@ -10,7 +10,7 @@ const UseStateCounter = () => {
       });
     }, 2000);
   };
-  
+
   return (
     <>
       <section style={{ margin: '4rem 0' }}>
