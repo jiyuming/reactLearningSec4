@@ -3,7 +3,14 @@ import Modal from './Modal';
 import { data } from '../../../data';
 // reducer function
 
-const reducer = (state, action) => {};
+const reducer = (state, action) => {
+  return{
+    ...state,
+    people: data,
+    isModalOpen: true,
+    modalContent: 'item added'
+  }
+};
 const defaultState = {
   people: [],
   isModalOpen: false,
@@ -22,8 +29,23 @@ const Index = () => {
       // setShowModal(true);
       // setPeople([...people, { id: new Date().getTime().toString(), name }]);
       // setName('');
+      const newPeople = {id: new Date().getTime().toString(), name};
+      dispatch({type: 'ADD_ITEM'});
+      setName('');
+      return{
+        ...state,
+        people: newPeople,
+        isModalOpen: true,
+        modalContent: 'item added'
+      }
     } else {
       // setShowModal(true);
+      dispatch({type: 'NO_VALUE'});
+      return{
+        ...state,
+        isModalOpen: true,
+        modalContent: 'please enter value'
+      }
     }
   };
   return (
